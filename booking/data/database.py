@@ -2,10 +2,15 @@
 
 # built-in imports
 import sqlite3
+import pathlib
+
+# local imports
+import booking
 
 class Database:
-    def __init__(self, name):
-        self._connection = sqlite3.connect(name)
+    def __init__(self):
+        self.path = f'{pathlib.Path(booking.__file__).resolve().parent}/data/Database.db'
+        self._connection = sqlite3.connect(self.path)
         self._cursor = self._connection.cursor()
 
     def __enter__(self):

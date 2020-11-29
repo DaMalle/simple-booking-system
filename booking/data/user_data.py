@@ -5,7 +5,7 @@ from booking.data.database import Database
 
 class UserData:
     def __init__(self):
-        with Database('Database.db') as db:
+        with Database() as db:
             db.execute('''CREATE TABLE IF NOT EXISTS Users (
                             id INTEGER NOT NULL PRIMARY KEY,
                             name text NOT NULL,
@@ -14,7 +14,7 @@ class UserData:
                            ''')
 
     def add(self, id, name, password, role):
-        with Database('Database.db') as db:
+        with Database() as db:
             db.execute('INSERT INTO Users (id, name, password, role) VALUES (?,?,?,?)', (id, name, password, role))
 
     def delete(self):
