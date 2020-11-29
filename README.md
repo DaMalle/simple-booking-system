@@ -1,2 +1,2 @@
-# booking
-A simple booking system
+# Simple Booking System
+A simple booking system.
