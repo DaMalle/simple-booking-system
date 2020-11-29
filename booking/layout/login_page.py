@@ -1,10 +1,11 @@
-#built-in imports
+# built-in imports
 import tkinter as tk
 
-#local imports
+# local imports
 import booking.logic.user_logic as user_logic
 
-class LoginPage(tk.Frame): #
+class LoginPage(tk.Frame):
+    """A frame where you can login to the booking system"""
     def __init__(self, main=None):
         super().__init__(main)
         self.main = main
