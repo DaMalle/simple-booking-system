@@ -11,7 +11,7 @@ class LoginPage(tk.Frame):
         self.main = main
         self.draw_widgets()
 
-    def draw_widgets(self):
+    def draw_widgets(self): #! change variable names
         self.user_entry = tk.Entry(self)
         self.user_entry.grid(column=1, row=1, pady=(50,0))
         self.user_label = tk.Label(self, text="Username")
