@@ -26,7 +26,7 @@ class LoginPage(tk.Frame):
         self.login_button.grid(column=2, row=2, padx=(0,50), pady=(0,50))
 
     def login(self):
-        user_logic.verify_user(self.user_entry.get(), self.pass_entry.get())
+        user_logic.verify_user(self.username_entry.get(), self.password_entry.get())
 
     def clear_frame(self):
         for widget in self.winfo_children():
