@@ -1,10 +1,12 @@
 from booking.layout.login_page import LoginPage
+from booking.layout.components.header import Header
+
 import tkinter as tk
 
 if __name__ == '__main__':
     root = tk.Tk()
-    LoginPage(main=root).grid(column=1, row=1)
-    header = tk.Label(root, text="   Aarhus Golfclub    ", bg="#af2222", fg="#ffffff", font=("Roboto Medium", 30, "bold"))
-    header.grid(column=1, row=0, columnspan=3)
+    root.rowconfigure(0, weight=0)
+    root.columnconfigure(1, weight=1000)
+    LoginPage(root).grid(column=1, row=2)
+    Header(root).grid(column=1, row=1, sticky="NEW")
     root.mainloop()
-
