@@ -2,7 +2,8 @@
 import tkinter as tk
 
 # local imports
-import booking.logic.user_logic as user_logic
+from booking.logic.user_logic import verify_user
+from booking.layout.registration_page import RegistrationPage
 
 class LoginPage(tk.Frame):
     """A frame where you can login to the booking system"""
@@ -18,16 +19,25 @@ class LoginPage(tk.Frame):
         self.username_label.grid(column=0, row=1, padx=(50,0), pady=(50,0))
 
         self.password_entry = tk.Entry(self)
-        self.password_entry.grid(column=1, row=2, pady=(0,50))
+        self.password_entry.grid(column=1, row=2, pady=(0,0))
         self.password_label = tk.Label(self, text="Password")
-        self.password_label.grid(column=0, row=2, padx=(50,0), pady=(0,50))
+        self.password_label.grid(column=0, row=2, padx=(50,0), pady=(0,0))
 
-        self.login_button = tk.Button(self,text="Login", command=self.login)
-        self.login_button.grid(column=2, row=2, padx=(0,50), pady=(0,50))
+        self.login_button = tk.Button(self, text="Login", command=self.login)
+        self.login_button.grid(column=2, row=2, padx=(4,0), pady=(0,0))
+
+        self.no_user_label = tk.Label(self, text="Har du ikke en bruger så opret én!")
+        self.no_user_label.grid(column=1, row=3, pady=(0,50))
+        self.no_user_button = tk.Button(self, text="Opret en bruger", command=self.open_registration_page)
+        self.no_user_button.grid(column=2, row=3, padx=(0,50), pady=(0,50))
 
     def login(self):
-        user_logic.verify_user(self.username_entry.get(), self.password_entry.get())
+        verify_user(self.username_entry.get(), self.password_entry.get())
+
+    def open_registration_page(self):
+        self.clear_frame()
+        RegistrationPage(self).grid(column=1,row=1)
 
     def clear_frame(self):
         for widget in self.winfo_children():
-            widget.destoy()
+            widget.destroy()
