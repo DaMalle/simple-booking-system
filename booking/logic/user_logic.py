@@ -9,19 +9,18 @@ class UserLogic:
         self.UserData = UserData()
 
     def register(self, email, first_name, last_name, password, role):
-        pass
+        if self.verify_user(email) != True:
+            self.UserData.add(email, first_name, last_name, password, role)
 
-    def tester(self, email):
-        if self.verify_email(email):
-            print(f'{email} is used')
-        else:
-            print(f'{email} is not used')
+    def login(self, email, password):
+        if self.verify_user(email):
+            if password == self.get_password(email):
+                print('login')
 
-    def verify_email(self, email): #verify if a user exsists in the system
+    def verify_user(self, email): #verify if a user exsists in the system
         self.emails = [email for t in self.UserData.get_all_emails() for email in t]
         if email in self.emails:
             return True
-
-test = UserLogic()
-test.tester('Mallerupz@gmail.com')
-test.tester('test@mail.dk')
+    
+    def get_password(self, email):
+        pass

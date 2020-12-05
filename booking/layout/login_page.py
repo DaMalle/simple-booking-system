@@ -4,7 +4,7 @@
 import tkinter as tk
 
 # local imports
-from booking.logic.user_logic import verify_user
+from booking.logic.user_logic import UserLogic
 from booking.layout.registration_page import RegistrationPage
 
 
@@ -36,7 +36,7 @@ class LoginPage(tk.Frame):
         self.no_user_button.grid(column=2, row=3, padx=(0,50), pady=(0,50))
 
     def login(self):
-        verify_user(self.email_entry.get(), self.password_entry.get())
+        UserLogic.verify_user(self.email_entry.get(), self.password_entry.get())
 
     def open_registration_page(self):
         RegistrationPage(self.main).grid(column=0, row=0, sticky="NEWS")
