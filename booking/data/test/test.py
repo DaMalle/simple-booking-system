@@ -1,6 +1,4 @@
-#! /usr/bin/env python3
-
 from booking.data.user_data import UserData
 
-
-UserData().add(1, 'Marcus', 'test123', 'admin')
+t = UserData()
+t.add('Mallerupz@gmail.com', 'Marcus', 'Friis', 'test123', 'Admin')

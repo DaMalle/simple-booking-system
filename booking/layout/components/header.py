@@ -1,7 +1,11 @@
+#! /usr/bin/env python3
+
+# Built-in imports
 import tkinter as tk
 
-class Header(tk.Frame):
 
+class Header(tk.Frame):
+    """A top banner for the booking application"""
     def __init__(self, main):
         super().__init__(main)
         self.main = main

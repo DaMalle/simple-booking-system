@@ -7,18 +7,13 @@ class UserData:
     def __init__(self):
         with Database() as db:
             db.execute('''CREATE TABLE IF NOT EXISTS Users (
-                            id INTEGER NOT NULL PRIMARY KEY,
-                            name text NOT NULL,
+                            mail text NOT NULL,
+                            first_name text NOT NULL,
+                            last_name text NOT NULL,
                             password text NOT NULL,
                             role text NOT NULL)
                            ''')
 
-    def add(self, id, name, password, role):
+    def add(self, mail, first_name, last_name, password, role):
         with Database() as db:
-            db.execute('INSERT INTO Users (id, name, password, role) VALUES (?,?,?,?)', (id, name, password, role))
-
-    def delete(self):
-        pass
-
-    def edit(self):
-        pass
+            db.execute('INSERT INTO Users (mail, first_name, last_name, password, role) VALUES (?,?,?,?,?)', (mail, first_name, last_name, password, role))

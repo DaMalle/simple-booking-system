@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 # built-in imports
 import tkinter as tk
 
@@ -5,18 +7,20 @@ import tkinter as tk
 from booking.logic.user_logic import verify_user
 from booking.layout.registration_page import RegistrationPage
 
+
 class LoginPage(tk.Frame):
     """A frame where you can login to the booking system"""
     def __init__(self, main):
         super().__init__(main)
         self.main = main
+        self.main.title('Login')
         self.draw_widgets()
 
     def draw_widgets(self):
-        self.username_entry = tk.Entry(self)
-        self.username_entry.grid(column=1, row=1, pady=(50,0))
-        self.username_label = tk.Label(self, text="Username")
-        self.username_label.grid(column=0, row=1, padx=(50,0), pady=(50,0))
+        self.email_entry = tk.Entry(self)
+        self.email_entry.grid(column=1, row=1, pady=(50,0))
+        self.email_label = tk.Label(self, text="E-mail")
+        self.email_label.grid(column=0, row=1, padx=(50,0), pady=(50,0))
 
         self.password_entry = tk.Entry(self)
         self.password_entry.grid(column=1, row=2, pady=(0,0))
@@ -32,12 +36,7 @@ class LoginPage(tk.Frame):
         self.no_user_button.grid(column=2, row=3, padx=(0,50), pady=(0,50))
 
     def login(self):
-        verify_user(self.username_entry.get(), self.password_entry.get())
+        verify_user(self.email_entry.get(), self.password_entry.get())
 
     def open_registration_page(self):
-        self.clear_frame()
-        RegistrationPage(self).grid(column=1,row=1)
-
-    def clear_frame(self):
-        for widget in self.winfo_children():
-            widget.destroy()
+        RegistrationPage(self.main).grid(column=0, row=0, sticky="NEWS")
