@@ -6,6 +6,7 @@ import tkinter as tk
 # local imports
 from booking.logic.user_logic import UserLogic
 from booking.layout.registration_page import RegistrationPage
+from booking.layout.booking_page import BookingPage
 
 
 class LoginPage(tk.Frame):
@@ -17,10 +18,13 @@ class LoginPage(tk.Frame):
         self.draw_widgets()
 
     def draw_widgets(self):
+        self.error_label = tk.Label(self, text='', fg='red2')
+        self.error_label.grid(column=0, columnspan=2, row=0, pady=(0,0))
+
         self.email_entry = tk.Entry(self)
         self.email_entry.grid(column=1, row=1, pady=(50,0))
         self.email_label = tk.Label(self, text="E-mail")
-        self.email_label.grid(column=0, row=1, padx=(50,0), pady=(50,0))
+        self.email_label.grid(column=0, row=1, padx=(50,0), pady=(0,0))
 
         self.password_entry = tk.Entry(self)
         self.password_entry.grid(column=1, row=2, pady=(0,0))
@@ -36,7 +40,25 @@ class LoginPage(tk.Frame):
         self.no_user_button.grid(column=2, row=3, padx=(0,50), pady=(0,50))
 
     def login(self):
-        UserLogic.verify_user(self.email_entry.get(), self.password_entry.get())
+        if UserLogic().login(self.email_entry.get(), self.password_entry.get())[0]:
+            self.destroy()
+            BookingPage(self.main).grid(column=0, row=0, sticky="NEWS")
+
+        else:
+            if UserLogic().login(self.email_entry.get(), self.password_entry.get())[1] == 'email':
+                self.error_label.configure(text='E-mailen er ikke en gyldig bruger')
+
+            elif UserLogic().login(self.email_entry.get(), self.password_entry.get())[1] == 'password':
+                self.error_label.configure(text='passwordet er ikke gyldigt')
+                
+            else:
+                print(UserLogic().login(self.email_entry.get(), self.password_entry.get())[1])
 
     def open_registration_page(self):
+        self.clear_loginpage()
         RegistrationPage(self.main).grid(column=0, row=0, sticky="NEWS")
+
+    def clear_loginpage(self):
+        self.error_label.configure(text='')
+        self.email_entry.delete(0, 'end')
+        self.password_entry.delete(0, 'end')

@@ -10,7 +10,6 @@ class BookingPage(tk.Frame):
     """A frame in which you can view bookings in the booking system"""
     def __init__(self, main):
         super().__init__(main)
-
         self.main = main
         self.main.title('Booking')
         self.draw_widgets()

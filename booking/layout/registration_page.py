@@ -19,15 +19,15 @@ class RegistrationPage(tk.Frame):
         #Header(self).grid()
 
 
-        self.fornavn_entry = tk.Entry(self)
-        self.fornavn_entry.grid(column=1, row=1, pady=(50,0))
-        self.fornavn_label = tk.Label(self, text="Fornavn")
-        self.fornavn_label.grid(column=0, row=1, padx=(100,0), pady=(50,0))
+        self.firstname_entry = tk.Entry(self)
+        self.firstname_entry.grid(column=1, row=1, pady=(50,0))
+        self.firstname_label = tk.Label(self, text="Fornavn")
+        self.firstname_label.grid(column=0, row=1, padx=(100,0), pady=(50,0))
 
-        self.efternavn_entry = tk.Entry(self)
-        self.efternavn_entry.grid(column=1, row=2, pady=(0,0))
-        self.efternavn_label = tk.Label(self, text="Efternavn")
-        self.efternavn_label.grid(column=0, row=2, padx=(100,0), pady=(0,0))
+        self.lastname_entry = tk.Entry(self)
+        self.lastname_entry.grid(column=1, row=2, pady=(0,0))
+        self.lastname_label = tk.Label(self, text="Efternavn")
+        self.lastname_label.grid(column=0, row=2, padx=(100,0), pady=(0,0))
 
         self.email_entry = tk.Entry(self)
         self.email_entry.grid(column=1, row=3, pady=(0,0))
@@ -48,7 +48,10 @@ class RegistrationPage(tk.Frame):
     def cancel(self):
         self.destroy()
 
-
     def new_user(self):
-        UserLogic.register(self.email_entry.get(), self.password_entry.get())
+        UserLogic().register_member(self.email_entry.get(),
+                                  self.firstname_entry.get(),
+                                  self.lastname_entry.get(),
+                                  self.password_entry.get()
+                                  )
         self.destroy()
