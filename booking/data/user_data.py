@@ -22,3 +22,8 @@ class UserData:
         with Database() as db:
             db.execute('''SELECT email FROM Users''')
             return db.fetchall()
+
+    def get_password(self, email):
+        with Database() as db:
+            db.execute('''SELECT password FROM Users WHERE email=?''', (email,))
+            return db.fetchone()
