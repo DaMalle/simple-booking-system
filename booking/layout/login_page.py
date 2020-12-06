@@ -24,13 +24,13 @@ class LoginPage(tk.Frame): # The first window the user is greeted with
 
         # The entry in which the user writes their email
         self.email_entry = tk.Entry(self)
-        self.email_entry.grid(column=1, row=1, pady=(50,0))
+        self.email_entry.grid(column=1, row=1, sticky="W", pady=(50,0))
         self.email_label = tk.Label(self, text="E-mail")
         self.email_label.grid(column=0, row=1, padx=(50,0), pady=(50,0))
 
         # The entry in which the user writes their password
         self.password_entry = tk.Entry(self)
-        self.password_entry.grid(column=1, row=2, pady=(0,0))
+        self.password_entry.grid(column=1, row=2, sticky="W", pady=(0,0))
         self.password_label = tk.Label(self, text="Password")
         self.password_label.grid(column=0, row=2, padx=(50,0), pady=(0,0))
 
@@ -62,7 +62,7 @@ class LoginPage(tk.Frame): # The first window the user is greeted with
 
     def open_registration_page(self): # The user is taken to the RegistrationPage
         self.clear_loginpage() # The labels and entries are cleared
-        RegistrationPage(self.main).grid(column=0, row=1, sticky="NEWS") # The new page is created on top of the current page
+        RegistrationPage(self.main).grid(column=0, row=1) # The new page is created on top of the current page
 
     def clear_loginpage(self):
         self.error_label.configure(text='')

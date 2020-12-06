@@ -5,7 +5,7 @@ import tkinter as tk
 
 # local imports
 from booking.layout.login_page import LoginPage
-from booking.layout.registration_page import RegistrationPage
+from booking.layout.components.header import Header
 
 
 class MainApp(tk.Frame):
@@ -13,8 +13,10 @@ class MainApp(tk.Frame):
         super().__init__(main)
         self.main = main
         self.draw_widgets()
+        self.main.columnconfigure(0, weight=1)
 
     def draw_widgets(self):
+        Header(self.main).grid(column=0, row=0, sticky="NEW")
         LoginPage(self.main).grid(column=0, row=1)
 
 
