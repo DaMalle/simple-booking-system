@@ -47,8 +47,7 @@ class LoginPage(tk.Frame): # The first window the user is greeted with
     def login(self):
         # If the login attempt is successfull the user will be taken to the BookingPage
         if UserLogic().login(self.email_entry.get(), self.password_entry.get())[0]:
-            self.destroy()
-            BookingPage(self.main).grid(column=0, row=1, sticky="NEWS")
+            BookingPage(self.main, self.email_entry.get()).grid(column=0, row=1, sticky="NEWS")
 
         else: # If the attempt is unsuccessfull an error will be transmitted to the user
             if UserLogic().login(self.email_entry.get(), self.password_entry.get())[1] == 'email':
