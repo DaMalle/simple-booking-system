@@ -29,7 +29,7 @@ class LoginPage(tk.Frame): # The first window the user is greeted with
         self.email_label.grid(column=0, row=1, padx=(50,0), pady=(50,0))
 
         # The entry in which the user writes their password
-        self.password_entry = tk.Entry(self)
+        self.password_entry = tk.Entry(self, show='*')
         self.password_entry.grid(column=1, row=2, sticky="W", pady=(0,0))
         self.password_label = tk.Label(self, text="Password")
         self.password_label.grid(column=0, row=2, padx=(50,0), pady=(0,0))
@@ -47,6 +47,7 @@ class LoginPage(tk.Frame): # The first window the user is greeted with
     def login(self):
         # If the login attempt is successfull the user will be taken to the BookingPage
         if UserLogic().login(self.email_entry.get(), self.password_entry.get())[0]:
+            self.error_label.configure(text='')
             BookingPage(self.main, self.email_entry.get()).grid(column=0, row=1, sticky="NEWS")
 
         else: # If the attempt is unsuccessfull an error will be transmitted to the user

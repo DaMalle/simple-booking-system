@@ -54,10 +54,14 @@ class RegistrationPage(tk.Frame):
 
     def new_user(self):
         # The new user is registered
-        UserLogic().register_member(self.email_entry.get(),
-                                  self.firstname_entry.get(),
-                                  self.lastname_entry.get(),
-                                  self.password_entry.get()
-                                  )
-        # The page is destroyed and returns the previous page
-        self.destroy()
+        self.register_member = UserLogic().register_member(self.email_entry.get(),
+                                                         self.first_name_entry.get(),
+                                                         self.last_name_entry.get(),
+                                                         self.password_entry.get()
+                                                        )
+        if self.register_member[0]:
+            print('registered')
+            # The page is destroyed and returns the previous page
+            self.destroy()
+        else:
+            print('not registered')
