@@ -15,7 +15,7 @@ class MainApp(tk.Frame):
         self.draw_widgets()
 
     def draw_widgets(self):
-        LoginPage(self.main).grid(row=0, column=0)
+        LoginPage(self.main).grid(column=0, row=1)
 
 
 if __name__ == '__main__':

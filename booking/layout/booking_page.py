@@ -2,7 +2,6 @@
 
 # built-in imports
 import tkinter as tk
-
 # local imports
 
 
