@@ -12,7 +12,7 @@ class UserLogic:
         return self.register(email, first_name, last_name, password, 'Member')
 
     def register(self, email, first_name, last_name, password, role):
-        if self.verify_user(email) == False:
+        if self.verify_user(email) == False or self.verify_user(email) == None:
             self.UserData.add(email, first_name, last_name, password, role)
             return (True, (email, first_name, last_name, password))
         else:
