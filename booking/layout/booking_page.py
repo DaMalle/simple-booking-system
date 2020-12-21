@@ -4,7 +4,7 @@
 import tkinter as tk
 
 # local imports
-
+from booking.layout.components.table import Table
 
 class BookingPage(tk.Frame):
     """A frame in which you can view bookings in the booking system"""
@@ -37,6 +37,10 @@ class BookingPage(tk.Frame):
 
         self.log_out_button = tk.Button(self, text="Logud", command=self.log_out)
         self.log_out_button.grid(column=5, row=1)
+
+        self.table = Table(self)
+        self.table.grid(column=2, row=3, columnspan=10)
+
 
 
     def update_table(self, a):
