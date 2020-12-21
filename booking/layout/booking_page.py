@@ -20,15 +20,6 @@ class BookingPage(tk.Frame):
 
     def draw_widgets(self):
 
-        self.course_label = tk.Label(self, text="Vælg bane")
-        self.course_label.grid(column=1, row=1)
-
-        self.coursevar = tk.StringVar(self) # The var for the course_option OptionMenu
-        self.coursevar.set(self.courses[0]) # Sets default value
-
-        self.course_option = tk.OptionMenu(self, self.coursevar, *self.courses, command=self.update_table)
-        self.course_option.grid(column=2, row=1)
-
         self.my_reservations_button = tk.Button(self, text="Mine reservationer", command=self.my_reservations)
         self.my_reservations_button.grid(column=3, row=1)
 

@@ -5,7 +5,7 @@ class Table_field:
         self.x = x
         self.y = y
         self.button = tk.Button(root, text=text, width=3, command=self.but_pos)
-        self.button.grid(column=self.x, row=self.y)
+        self.button.grid(column=self.x, row=self.y+2)
 
     def but_pos(self): #prints the coordinates of the button
         print(f"{self.x},{self.y}")
@@ -30,4 +30,4 @@ class Table(tk.Frame):
             hour += 1
         for x in range(10):
             for y in range(8):
-                Table_field(self, x, y+2, text=self.time_list[y])
+                Table_field(self, x, y, text=self.time_list[y])
