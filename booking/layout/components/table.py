@@ -69,6 +69,7 @@ class Table(tk.Frame):
     def cancel(self):
         for i in self.new_reservations:
             i.button.config(bg="white")
+        self.new_reservations = []
 
     def pseudo_reserve(self, time, user):
         pass
