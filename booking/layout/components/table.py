@@ -10,8 +10,7 @@ class Table_field:
         self.button = tk.Button(self.parent, text=self.text, width=3, command=self.but_pos)
         self.button.grid(column=self.x, row=self.y+2)
 
-    def but_pos(self): #prints the coordinates of the button
-        print(self.time)
+    def but_pos(self):
         if self.parent.reserve_status == True:
             self.button.config(bg="blue")
             self.parent.reserve_status = False
@@ -37,7 +36,7 @@ class Table(tk.Frame):
     def draw_widgets(self):
         hour = 9
         for i in range(10):
-            tk.Button(self, text=str(hour), width=3, height=2,  bg="#72DBFF").grid(column=i, row=1)
+            tk.Button(self, text=str(hour), state="disabled", width=3, height=2,  bg="#72DBFF").grid(column=i, row=1)
             hour += 1
         for x in range(10):
             for y in range(8):
