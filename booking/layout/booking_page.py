@@ -29,7 +29,7 @@ class BookingPage(tk.Frame):
         self.log_out_button = tk.Button(self, text="Logud", command=self.log_out)
         self.log_out_button.grid(column=5, row=1)
 
-        self.table = Table(self)
+        self.table = Table(self, self.current_user)
         self.table.grid(column=2, row=3, columnspan=10)
 
 
