@@ -2,6 +2,7 @@
 
 # built-in imports
 import tkinter as tk
+
 # local imports
 
 
@@ -19,26 +20,24 @@ class BookingPage(tk.Frame):
 
     def draw_widgets(self):
 
-        self.date_label = tk.Label(self, text="Dato:")
-        self.date_label.grid(column=1, row=1)
-
         self.course_label = tk.Label(self, text="Vælg bane")
-        self.course_label.grid(column=1, row=2)
+        self.course_label.grid(column=1, row=1)
 
-        var = tk.StringVar(self) # The var for the course_option OptionMenu
-        var.set(self.courses[0]) # Sets default value
+        self.coursevar = tk.StringVar(self) # The var for the course_option OptionMenu
+        self.coursevar.set(self.courses[0]) # Sets default value
 
-        self.course_option = tk.OptionMenu(self, var, *self.courses, command=self.update_table)
-        self.course_option.grid(column=2, row=2)
-
-        self.log_out_button = tk.Button(self, text="Logud", command=self.log_out)
-        self.log_out_button.grid(column=3, row=1)
+        self.course_option = tk.OptionMenu(self, self.coursevar, *self.courses, command=self.update_table)
+        self.course_option.grid(column=2, row=1)
 
         self.my_reservations_button = tk.Button(self, text="Mine reservationer", command=self.my_reservations)
-        self.my_reservations_button.grid(column=4, row=1)
+        self.my_reservations_button.grid(column=3, row=1)
 
         self.my_page_button = tk.Button(self, text="Min side", command=self.my_page)
-        self.my_page_button.grid(column=5, row=1)
+        self.my_page_button.grid(column=4, row=1)
+
+        self.log_out_button = tk.Button(self, text="Logud", command=self.log_out)
+        self.log_out_button.grid(column=5, row=1)
+
 
     def update_table(self, a):
         print(a)
