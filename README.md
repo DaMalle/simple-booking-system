@@ -1,10 +1,58 @@
 # Simple Booking System
 A simple booking system.
 
-write commands:
 
-1) source .env/bin/activate
-2) pip3 install -e .
-3) cd booking/layout
-4) python3 gui.py
+## Install
+Firstly you have to active the virtual enviroment:
+```source .env/bin/activate```
 
+Then to install the program, you write:
+```pip install -e .```
+
+
+## Start the program
+Go to the booking folder, then to layout:
+```cd booking/layout```
+start the program by writing: 
+```python gui.py```
+
+## file structure:
+```
+.
+├── booking
+│   ├── data
+│   │   ├── Database.db
+│   │   ├── database.py
+│   │   ├── __init__.py
+│   │   ├── reservation_data.py
+│   │   ├── test
+│   │   │   ├── __init__.py
+│   │   │   └── test.py
+│   │   └── user_data.py
+│   ├── __init__.py
+│   ├── layout
+│   │   ├── booking_page.py
+│   │   ├── components
+│   │   │   ├── header.py
+│   │   │   ├── __init__.py
+│   │   │   └── table.py
+│   │   ├── gui.py
+│   │   ├── __init__.py
+│   │   ├── login_page.py
+│   │   ├── registration_page.py
+│   │   ├── reservation_page.py
+│   │   └── test
+│   │       ├── __init__.py
+│   │       └── testing.py
+│   └── logic
+│       ├── __init__.py
+│       ├── reservation_logic.py
+│       ├── test
+│       │   ├── __init__.py
+│       │   ├── test.py
+│       │   └── test_user_logic.py
+│       └── user_logic.py
+├── LICENSE
+├── README.md
+└── setup.py
+```
