@@ -7,7 +7,7 @@ class Table_field:
         self.x = x
         self.y = y
         self.time = f"{self.x+9}:{self.text}"
-        self.button = tk.Button(self.parent, text=self.text, width=3, command=self.but_pos)
+        self.button = tk.Button(self.parent, text=self.text, width=3, color="white", command=self.but_pos)
         self.button.grid(column=self.x, row=self.y+2)
 
     def but_pos(self):
@@ -57,7 +57,7 @@ class Table(tk.Frame):
         elif self.reserve_status == True:
             self.reserve_button.config(relief="raised")
             self.reserve_status = False
-        print(self.new_reservations)
+
 
     def accept(self):
         for i in self.new_reservations:
