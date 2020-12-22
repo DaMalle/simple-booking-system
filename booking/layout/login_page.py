@@ -7,7 +7,7 @@ import tkinter as tk
 from booking.logic.user_logic import UserLogic
 from booking.layout.registration_page import RegistrationPage
 from booking.layout.booking_page import BookingPage
-
+from booking.layout.reservation_page import ReservationPage
 
 class LoginPage(tk.Frame): # The first window the user is greeted with
     """A frame where you can login to the booking system"""
