@@ -43,7 +43,7 @@ class BookingPage(tk.Frame):
         for i in a:
             if self.current_user in i:
                 b.append(i[0])
-        ReservationPage(self.main, b).grid(column=0, row=1, sticky="NEWS")
+        ReservationPage(self.main, b, self.table).grid(column=0, row=1, sticky="NEWS")
 
 
 
