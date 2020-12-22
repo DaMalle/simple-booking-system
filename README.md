@@ -1,5 +1,6 @@
 # Simple Booking System
-A simple booking system.
+This is a simple booking system, that we were tasked to make as a schoolproject. We chose Aarhus Golfclub as our case. We are not affiliated with Aarhus Golfclub in any way.
+
 
 
 ## Install
