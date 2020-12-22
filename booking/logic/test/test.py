@@ -3,17 +3,14 @@ from booking.logic.user_logic import UserLogic
 from booking.data.user_data import UserData
 class db_test(unittest.TestCase):
 
-    def setUp(self):
-        UserLogic().register_member("test@email.com", "Sherlock", "Holmes", "mystery123")
-
-    def test_register_mem(self):
-        self.assertEqual(UserData().get_user("test@email.com")[0], "test@email.com")
+    def test_register_member(self):
+        self.assertEqual(UserLogic().register_member("test@email.com", "Sherlock", "Holmes", "mystery123"), (False, "email"))
 
     def test_register(self):
-        self.assertEqual(UserData().get_user("test@email.com")[0], "test@email.com")
+        self.assertEqual(UserLogic().register("test@email.com", "Sherlock", "Holmes", "mystery123", "Member"), (False, "email"))
 
-    def tearDown(self):
-        UserData.delete_user(self, "test@email.com")
+    def test_verify_user(self):
+        self.assertEqual(UserLogic().verify_user("test@email.com"), True)
 
 if __name__ == "__main__":
     unittest.main()
