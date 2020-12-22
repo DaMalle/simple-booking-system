@@ -16,3 +16,8 @@ class ReservationData:
     def add(self, time, email, first_name, last_name):
         with Database() as db:
             db.execute('INSERT INTO Reservation (time, email, first_name, last_name) VALUES (?,?,?,?)', (time, email, first_name, last_name))
+
+    def get_all_reservations(self):
+        with Database() as db:
+            db.execute('''SELECT time FROM Reservation''')
+            return db.fetchall()
