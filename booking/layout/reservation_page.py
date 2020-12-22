@@ -21,4 +21,3 @@ class ReservationPage(tk.Frame): # The first window the user is greeted with
         self.reservation_option = tk.OptionMenu(self, self.listvar, *self.reservations)
         self.reservation_option.grid(column=2, row=2)
 
-    def
