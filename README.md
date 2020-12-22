@@ -17,7 +17,10 @@ Go to the booking folder, then to layout:
 start the program by writing: 
 ```python gui.py```
 
-## file structure:
+## Work Schedule
+![alt text](https://media.discordapp.net/attachments/781211340316475452/790901817880870923/unknown.png)
+
+## File structure:
 ```
 .
 ├── booking
