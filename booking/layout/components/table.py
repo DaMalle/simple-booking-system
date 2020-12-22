@@ -70,7 +70,7 @@ class Table(tk.Frame):
     def accept(self):
         for i in self.new_reservations:
             self.logic.reservate(i.time, self.user)
-            i.button.config(state="disabled", bg="green", fg="red")
+            i.button.config(state="disabled", bg="green")
         self.new_reservations = []
 
     def cancel(self):
@@ -80,12 +80,15 @@ class Table(tk.Frame):
 
     def update_fields(self):
         a = self.logic.get_reservation_list()
+        print(a)
         for i in self.fields:
+            i.button.config(bg="white", state="normal")
             for j in a:
                 if i.time in j and self.user not in j:
                     i.button.config(bg="red", state="disabled")
                 elif i.time in j and self.user in j:
                     i.button.config(bg="green", state="disabled")
+
 
 
 

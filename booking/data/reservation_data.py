@@ -25,4 +25,4 @@ class ReservationData:
 
     def delete(self, timestamp):
         with Database() as db:
-            db.execute('DELETE * FROM tasks WHERE time=?', (timestamp))
+            db.execute('DELETE FROM Reservation WHERE time=?', (timestamp,))
