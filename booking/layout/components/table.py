@@ -70,7 +70,7 @@ class Table(tk.Frame):
     def accept(self):
         for i in self.new_reservations:
             self.logic.reservate(i.time, self.user)
-            i.button.config(state="disabled", bg="green", fg="red")
+            i.button.config(state="disabled", bg="green")
         self.new_reservations = []
 
     def cancel(self):

@@ -44,8 +44,12 @@ class ReservationPage(tk.Frame):  # The first window the user is greeted with
         self.logic.delete_reservation(a)
         for i in self.reservations:
             if a in i:
+                self.reservation_option['menu'].delete(self.reservations.index(a))
                 self.reservations.remove(i)
-                self.listvar.set(self.reservations[0])
+                try:
+                    self.listvar.set(self.reservations[0])
+                except:
+                    self.listvar.set("Du har ingen reservationer")
         print(self.reservations)
 
 
