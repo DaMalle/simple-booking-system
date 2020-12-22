@@ -6,7 +6,7 @@ A simple booking system.
 Firstly you have to active the virtual enviroment:
 ```source .env/bin/activate```
 
-Then to install the program, you write:
+Then install the program:
 ```pip install -e .```
 
 
