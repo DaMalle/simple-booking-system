@@ -37,6 +37,7 @@ class Table(tk.Frame):
         self.new_reservations = []
 
         self.draw_widgets()
+        self.update_fields()
 
     def draw_widgets(self):
         hour = 9
@@ -47,7 +48,7 @@ class Table(tk.Frame):
             for y in range(8):
                 self.fields.append(Table_field(self, x, y, text=self.time_list[y]))
 
-        print(self.fields)
+        print(self.logic.get_reservation_list())
 
         self.reserve_button = tk.Button(self, text="Reserver tider", command=self.reserve)
         self.reserve_button.grid(column=12, row=8)
@@ -77,6 +78,14 @@ class Table(tk.Frame):
             i.button.config(bg="white")
         self.new_reservations = []
 
+    def update_fields(self):
+        a = self.logic.get_reservation_list()
+        for i in self.fields:
+            for j in a:
+                if i.time in j and self.user not in j:
+                    i.button.config(bg="red", state="disabled")
+                elif i.time in j and self.user in j:
+                    i.button.config(bg="green", state="disabled")
 
 
 
