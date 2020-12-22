@@ -17,8 +17,12 @@ class ReservationData:
 
     def get_all_time(self):
         with Database() as db:
-            return db.query('''SELECT time FROM Reservation''')
+            return db.query('SELECT time FROM Reservation')
 
     def get_all_reservations(self):
         with Database() as db:
-            return db.query('''SELECT * FROM Reservation''')
+            return db.query('SELECT * FROM Reservation')
+
+    def delete(self, timestamp):
+        with Database() as db:
+            db.execute('DELETE * FROM tasks WHERE time=?', (timestamp))

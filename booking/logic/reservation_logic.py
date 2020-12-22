@@ -18,3 +18,7 @@ class ReservationLogic:
 
     def get_reservation_list(self):
         return self.ReservationData.get_all_reservations()
+
+    def delete_reservation(self, timestamp):
+        if self.check_reservation(timestamp):
+            self.ReservationData.delete(timestamp)
