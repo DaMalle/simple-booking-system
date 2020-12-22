@@ -20,8 +20,7 @@ class UserData:
 
     def get_all_emails(self):
         with Database() as db:
-            db.execute('''SELECT email FROM Users''')
-            return db.fetchall()
+            return db.query('''SELECT email FROM Users''')
 
     def get_password(self, email):
         with Database() as db:
