@@ -8,9 +8,9 @@ class ReservationLogic:
     def __init__(self):
         self.ReservationData = ReservationData()
 
-    def reservate(self, timestamp, email, first_name, last_name):
+    def reservate(self, timestamp, email):
         if self.check_reservation(timestamp) == False or self.check_reservation(timestamp) == None:
-            self.ReservationData.add(timestamp, email, first_name, last_name)
+            self.ReservationData.add(timestamp, email)
     
     def check_reservation(self, timestamp):
         if (timestamp,) in self.ReservationData.get_all_reservations():

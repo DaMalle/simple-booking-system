@@ -8,14 +8,12 @@ class ReservationData:
         with Database() as db:
             db.execute('''CREATE TABLE IF NOT EXISTS Reservation (
                             time text Not NULL,
-                            email text NOT NULL,
-                            first_name text NOT NULL,
-                            last_name text NOT NULL
+                            email text NOT NULL
                            ''')
 
-    def add(self, time, email, first_name, last_name):
+    def add(self, time, email):
         with Database() as db:
-            db.execute('INSERT INTO Reservation (time, email, first_name, last_name) VALUES (?,?,?,?)', (time, email, first_name, last_name))
+            db.execute('INSERT INTO Reservation (time, email, first_name, last_name) VALUES (?,?)', (time, email))
 
     def get_all_reservations(self):
         with Database() as db:
