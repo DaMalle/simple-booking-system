@@ -32,3 +32,7 @@ class UserData:
         with Database() as db:
             db.execute('''SELECT * FROM Users WHERE email=?''', (email,))
             return db.fetchone()
+
+    def delete_user(self, email):
+        with Database() as db:
+            db.execute('''DELETE FROM users WHERE email=?''', (email,))
