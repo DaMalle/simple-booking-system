@@ -8,14 +8,17 @@ class ReservationData:
         with Database() as db:
             db.execute('''CREATE TABLE IF NOT EXISTS Reservation (
                             time text Not NULL,
-                            email text NOT NULL
+                            email text NOT NULL)
                            ''')
 
     def add(self, time, email):
         with Database() as db:
-            db.execute('INSERT INTO Reservation (time, email, first_name, last_name) VALUES (?,?)', (time, email))
+            db.execute('INSERT INTO Reservation (time, email) VALUES (?,?)', (time, email))
+
+    def get_all_time(self):
+        with Database() as db:
+            return db.query('''SELECT time FROM Reservation''')
 
     def get_all_reservations(self):
         with Database() as db:
-            db.execute('''SELECT time FROM Reservation''')
-            return db.fetchall()
+            return db.query('''SELECT * FROM Reservation''')

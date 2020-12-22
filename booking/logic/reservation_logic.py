@@ -13,5 +13,8 @@ class ReservationLogic:
             self.ReservationData.add(timestamp, email)
     
     def check_reservation(self, timestamp):
-        if (timestamp,) in self.ReservationData.get_all_reservations():
+        if (timestamp,) in self.ReservationData.get_all_time():
             return True
+
+    def get_reservation_list(self):
+        return self.ReservationData.get_all_reservations()
