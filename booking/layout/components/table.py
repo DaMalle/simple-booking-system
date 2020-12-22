@@ -47,7 +47,7 @@ class Table(tk.Frame):
         self.accept_button = tk.Button(self, text="Godkend", command=self.accept)
         self.accept_button.grid(column=12, row=9)
 
-        self.cancel_button = tk.Button(self, text="Annuler", command=self.cancel)
+        self.cancel_button = tk.Button(self, text="Annullér", command=self.cancel)
         self.cancel_button.grid(column=13, row=9)
 
     def reserve(self):
