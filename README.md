@@ -2,6 +2,7 @@
 This is a simple booking system, that we were tasked to make as a schoolproject. We chose Aarhus Golfclub as our case. We are not affiliated with Aarhus Golfclub in any way.
 
 
+
 ## Install
 Firstly you have to active the virtual enviroment:
 ```source .env/bin/activate```
@@ -16,7 +17,10 @@ Go to the booking folder, then to layout:
 start the program by writing: 
 ```python gui.py```
 
-## file structure:
+## Work Schedule
+![alt text](https://media.discordapp.net/attachments/781211340316475452/790901817880870923/unknown.png)
+
+## File structure:
 ```
 .
 ├── booking
