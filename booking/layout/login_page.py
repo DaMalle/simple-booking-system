@@ -64,7 +64,7 @@ class LoginPage(tk.Frame): # The first window the user is greeted with
         self.clear_loginpage() # The labels and entries are cleared
         RegistrationPage(self.main).grid(column=0, row=1) # The new page is created on top of the current page
 
-    def clear_loginpage(self):
+    def clear_loginpage(self): # clears the Entries
         self.error_label.configure(text='')
         self.email_entry.delete(0, 'end')
         self.password_entry.delete(0, 'end')

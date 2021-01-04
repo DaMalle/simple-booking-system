@@ -16,7 +16,6 @@ class RegistrationPage(tk.Frame):
         self.draw_widgets()
 
     def draw_widgets(self):
-        #Header(self).grid()
 
         #The entry in which the user writes their first name
         self.first_name_entry = tk.Entry(self)

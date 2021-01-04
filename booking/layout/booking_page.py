@@ -38,7 +38,7 @@ class BookingPage(tk.Frame):
         pass
 
     def my_reservations(self):
-        a = self.logic.get_reservation_list()
+        a = self.logic.get_reservation_list() # returns a list which contains all reservation
         b = []
         for i in a:
             if self.current_user in i:

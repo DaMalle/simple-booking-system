@@ -48,7 +48,7 @@ class Table(tk.Frame):
             for y in range(8):
                 self.fields.append(Table_field(self, x, y, text=self.time_list[y]))
 
-        print(self.logic.get_reservation_list())
+
 
         self.reserve_button = tk.Button(self, text="Reserver tider", command=self.reserve)
         self.reserve_button.grid(column=12, row=8)
@@ -78,9 +78,9 @@ class Table(tk.Frame):
             i.button.config(bg="white")
         self.new_reservations = []
 
-    def update_fields(self):
+    def update_fields(self): # Updates the table fiel
         a = self.logic.get_reservation_list()
-        print(a)
+
         for i in self.fields:
             i.button.config(bg="white", state="normal")
             for j in a:
